@@ -2,7 +2,7 @@
 
 ## Part 1: Introduction, Recursion and Time Complexity
 
-### Some definition
+### Introduction
 
 - Data: Data is fact that has been translated into a form that is more convenient to calculate, analyze.
 
@@ -152,36 +152,123 @@ Some basic recursive algorithms:
             }
         ```
 
-    * Implement in directory: `./Recursion/HanoiTower/Basic`
+    * Implement in directory: `./Recursion/Problem/HanoiTowerBasic.cpp`
 
+### Time Complexity
 
-    - Advance:
-      
-        [Tiếng việt]
-      
-        Trò chơi tháp Hà Nội là trò chơi nổi tiếng với những chiếc đĩa có kích thước đôi một khác nhau có lỗ nằm ở giữa, nằm xuyên trên ba chiếc cọc A, B, C.
+#### Computing Runtime
 
-        Trò chơi bắt đầu bằng trạng thái các đĩa được chồng lên nhau ở cọc A, đĩa nhỏ nằm trên đĩa lớn, tức là đĩa nhỏ nhất được nằm trên cùng, tạo ra một dạng hình nón. Yêu cầu của trò chơi là chuyển toàn bộ số đĩa từ cọc A sang cọc C, tuân theo các quy tắc sau:
+To gure out how long this simple program would actually take to run on a real computer, we would also need to know things like:
+  1. Speed of the Computer
+  2. The System Architecture
+  3. The Compiler Being Used
+  4. Details of the Memory Hierarchy
 
-        Chỉ sử dụng 3 cọc để chuyển.
+Problem:
 
-        Một lần chỉ được di chuyển một đĩa nằm trên cùng từ cọc này sang cọc khác.
+  - Figuring out accurate runtime is a huge mess.
+  - In practice, you might not even know some of these details.
 
-        Một đĩa chỉ được đặt lên một đĩa lớn hơn.
+Goals:
 
-        Trong bài toán này, chúng ta sẽ có n chiếc đĩa, đánh số từ 1 đến n theo thứ tự kích thước đĩa tăng dần. Ban đầu, các đĩa nằm rải rác ở ba cọc nhưng vẫn thỏa mãn điều kiện đĩa nhỏ nằm trên đĩa lớn và mục tiêu là chuyển toàn bộ đĩa thành một chồng đĩa ở cọc C.
+  - Measure runtime without knowing these details.
+  - Get results that work for large inputs.
 
-        Yêu cầu: Cho trạng thái các đĩa nằm ở các cọc, hãy tìm cách chuyển toàn bộ đĩa thành một chồng đĩa ở cọc C.
+#### Asymptotic Notation
 
-        ```
-        Input:
-        Dòng đầu chứa số nguyên dương n.
-        Dòng thứ hai chứa một xâu gồm kí tự, kí tự thứ bằng 'A' hoặc 'B' hoặc 'C' cho biết đĩa thứ i nằm ở cọc A hay cọc B hay cọc C.
-        ```
-        ```
-        Output
-        Dòng đầu chứa số nguyên là số lần chuyển đĩa.
-        Dòng thứ j (j = 1, 2,..., s) trong dòng tiếp theo, mỗi dòng gồm đúng hai kí tự mô tả một thao tác chuyển đĩa. Cụ thể, kí tự thứ nhất là tên cọc chứa đĩa cần chuyển, kí tự thứ hai là tên cọc mà đĩa chuyển tới.
-        ```
+Ideas:
 
+    All of these issues can multiply run times by (large) constant.
 
+    So measure run time in away that ignores constant multiples.
+
+Problem and Solution:
+
+    Unfortunately, 1 second, 1 hour, 1 year only differ by constant multiples.
+
+    => Consider ASYMPTOTIC RUNTIMES. How does runtime scale with input size.
+
+#### Big-O Notation
+
+Given functions `f(n)` and `g(n)`, we say that `f(n)` is `O(g(n))` or $f \preceq O(g)$ if there are positive constants `c` and $n_0$ such that:
+
+$f(n) ≤ c.g(n),\ \forall n ≥ n_0$
+
+  - Using: We will use Big-O notation to report algorithm runtimes. 
+        
+        This has several advantages:
+        
+          - Clarifies Growth Rate
+          - Cleans up Notation => Makes algebra easier.
+          - Can ignore complicated details.
+
+  - Warning: 
+    - Using Big-O loses important information about constant multiples.
+    - Big-O is only asymptotic.
+
+    - Example:
+    
+    | Complexity | Name                  | Input (n)            |
+    |------------|-----------------------|----------------------|
+    | O(1)       | Constant              | Tùy yêu cầu bài toán |
+    | O(√n)      | Tuyến tính (Linear)   | 10¹²                 |
+    | O(n)       | Tuyến tính (Linear)   | 10⁸                  |
+    | O(n log n) | Linearithmic          | 10⁶                  |
+    | O(n√n)     |                       | 2 × 10⁵              |
+    | O(n²)      | Hàm luỹ thừa bậc 2    | 10⁴                  |
+    | O(n³)      | Hàm luỹ thừa bậc 3    | 500                  |
+    | O(n⁴)      | Hàm luỹ thừa bậc 4    | 100                  |
+    | O(2ⁿ)      | Hàm số mũ             | 20                   |
+    | O(n!)      | Giai thừa (Factorial) | 11                   |
+
+#### Others notation:
+
+For functions $ f, g : \mathbb{N} \rightarrow \mathbb{R}^+ $, we say that:
+
+   * $ f(n) = \Omega(g(n)) $ or $ f \succeq g $ if for some $ c $, $ f(n) \geq c \times g(n) $  
+
+  `f` grows no slower than `g`
+
+   * $ f(n) = \Theta(g(n)) $ or $ f \sim g $ if $ f = O(g) $ and $ f = \Omega(g) $ 
+
+  `f` grows as the same rate as `g`
+
+   * $ f(n) = o(g(n)) $ or $ f \prec g $ if $ \frac{f(n)}{g(n)} \rightarrow 0 $ as $ n \rightarrow \infty$  
+  
+  `f` grows slower than `g`
+
+### P and NP Problem
+
+  - P: Polynomial (can be solved in polynomial time on a deterministic machine).
+  - NP: Nondeterministic Polynomial (can be solved in polynomial time on a nondeterministic machine).
+    
+    [2-Satisfiability (2-SAT) Problem](https://www.geeksforgeeks.org/2-satisfiability-2-sat-problem/)
+
+    [Graph Coloring](https://www.geeksforgeeks.org/graph-coloring-applications/)
+
+    [Traveling Saleman Problem](https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/)
+
+  - CoNP: stands for the complement of NP Class. It means if the answer to a problem in Co-NP is No, then there is proof that can be checked in polynomial time.
+
+    [Prime Numbers](https://www.geeksforgeeks.org/prime-numbers/)
+
+    [Integer Factorization](https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/)
+
+  - NP-complete: NP and every other problem in NP is polynomially reducible to it.
+
+    [Vertex Cover](https://www.geeksforgeeks.org/proof-that-vertex-cover-is-np-complete/)
+
+  - NP-Hard: An NP-hard problem is at least as hard as the hardest problem in NP and it is a class of problems such that every problem in NP reduces to NP-hard.
+    
+    [Halting Problem](https://www.geeksforgeeks.org/halting-problem-in-theory-of-computation/)
+
+    [Qualified Boolean formulas](https://en.wikipedia.org/wiki/True_quantified_Boolean_formula)
+
+    |Complexity Class|	Characteristic feature                                                      |
+    |----------------|------------------------------------------------------------------------------|
+    |   P            |	Easily solvable in polynomial time.                                         |
+    |  	NP           |  Yes, answers can be checked in polynomial time.                             |
+    |   Co-NP        |	No, answers can be checked in polynomial time.                              |
+    |   NP-hard    	 |  All NP-hard problems are not in NP and it takes a long time to check them.  |
+    |   NP-complete  |	A problem that is NP and NP-hard is NP-complete.                            |
+    
