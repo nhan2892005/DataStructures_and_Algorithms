@@ -11,17 +11,17 @@
       - Discrete data can only take certain values(like whole numbers)
       - Continuous data can take any value (with in a range)
 
-  - Data type: 
+- Data type: 
         
     - A set of values
     - A set of operations of values
 
-  - Data Structure:
+- Data Structure:
 
     - A combination of elements in which each is either a data type or another data structure
     - A set of associations or relationships (structure) that holds the data together
 
-  - Abstract Datatypes:
+- Abstract Datatypes:
 
     - The concept of abstraction:
       - Users know what a data type can do.
@@ -32,7 +32,7 @@
           2. Declaration of operations.
           3. Encapsulation of data and operations.
 
-  - Algorithms: The logical steps to solve problems.
+- Algorithms: The logical steps to solve problems.
 
 ```
 Program = Data Structures + Algorithms
