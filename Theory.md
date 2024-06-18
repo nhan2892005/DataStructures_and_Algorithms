@@ -109,6 +109,7 @@ Some basic recursive algorithms:
 - Ha Noi Tower: 
 
   - Basic:
+    
     [Tiếng việt]
     Cho 3 cây đinh A, B và C và n chiếc đĩa có kích thước khác nhau. Ban đầu, các chiếc đinh được đặt ở cột A, theo thứ tự lớn nhất ở dưới cùng, nhỏ dần khi đến chiếc đĩa cuối cùng.
 
@@ -123,6 +124,7 @@ Some basic recursive algorithms:
         Mục tiêu là tìm ra trình tự các bước cần thiết để di chuyển toàn bộ các đĩa từ đinh A sang đinh C theo các quy tắc này.
 
     [English]
+    
     Select three pegs: A, B, and C, and n disks of different sizes. Initially, all the disks are placed on peg A in descending order, with the largest disk at the bottom and the smallest at the top.
 
     The goal of the problem is to move all the disks from peg A to peg C, using peg B as an intermediary, while adhering to the following rules:
@@ -154,7 +156,9 @@ Some basic recursive algorithms:
 
 
     - Advance:
+      
         [Tiếng việt]
+      
         Trò chơi tháp Hà Nội là trò chơi nổi tiếng với những chiếc đĩa có kích thước đôi một khác nhau có lỗ nằm ở giữa, nằm xuyên trên ba chiếc cọc A, B, C.
 
         Trò chơi bắt đầu bằng trạng thái các đĩa được chồng lên nhau ở cọc A, đĩa nhỏ nằm trên đĩa lớn, tức là đĩa nhỏ nhất được nằm trên cùng, tạo ra một dạng hình nón. Yêu cầu của trò chơi là chuyển toàn bộ số đĩa từ cọc A sang cọc C, tuân theo các quy tắc sau:
