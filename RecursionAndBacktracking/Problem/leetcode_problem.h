@@ -17,6 +17,12 @@ class Solution {
 
         // pointer function
 
+        // Helper function & variable
+
+        // Help 17
+        vector<string> digitToLetters = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        void dfs(const string& digits, int i, string&& path, vector<string>& ans);
+
     public:
         // 17. Letter Combinations of a Phone Number
         // https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
