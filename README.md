@@ -271,4 +271,44 @@ For functions $ f, g : \mathbb{N} \rightarrow \mathbb{R}^+ $, we say that:
     |   Co-NP        |	No, answers can be checked in polynomial time.                              |
     |   NP-hard    	 |  All NP-hard problems are not in NP and it takes a long time to check them.  |
     |   NP-complete  |	A problem that is NP and NP-hard is NP-complete.                            |
-    
+
+## Part 2: List
+### What's list
+#### Linear list concepts
+A linear list is a finite, ordered sequence of data items known as elements.
+
+![Linear list concept](linearlistconcept.png)
+
+General list:
+
+- No restrictions on which operation can be used on the list.
+
+- No restrictions on where data can be in serted/deleted.
+
+- Unsorted list: data are not arranged in particular order.
+
+- Sorted list: data are arranged according to a key.
+
+Restricted list:
+
+- Only some operations can be used on the list.
+
+- Data can be inserted/deleted only at the ends of the list.
+
+- Queue: FIFO (First-In-First-Out).
+
+- Stack: LIFO (Last-In-First-Out).
+
+List ADT:
+
+Defnition
+
+- A list of elements of type T is a finite, ordered sequence of elements of T.
+ 
+Basic concepts:
+
+- A list is `empty` when it contains no elements.
+
+- The number of elements currently stored is called the `length (size)` of the list.
+
+- The beginning of the list is called the `head`, the end of the list is called the `tail`
