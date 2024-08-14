@@ -5,35 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "Player",
-            "request": "launch",
-            "mainClass": "Player",
-            "projectName": "LearningDSA_154fdc0e"
-        },
-        {
-            "type": "java",
-            "name": "CheckPoint",
-            "request": "launch",
-            "mainClass": "CheckPoint",
-            "projectName": "LearningDSA_154fdc0e"
-        },
-        {
-            "type": "java",
-            "name": "gdc",
-            "request": "launch",
-            "mainClass": "gdc",
-            "projectName": "LearningDSA_34fd2fdf"
-        },
-        {
             "name": "g++ - Build and debug active file",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
+            "cwd": "${workspaceFolder}",
+            "environment":[],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -44,7 +23,7 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++ build active file",
-            "postDebugTask": "Remove Executable",
+            "postDebugTask": "Clear Exe File",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
