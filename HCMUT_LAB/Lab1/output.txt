@@ -1,0 +1,21 @@
+Test ArrayList
+Test 1: Passed
+Test 2: Passed
+Test 3: Passed
+Test 4: Passed
+
+Test sumLessThanTarget
+Test 1: Passed
+Test 2: Passed
+Test 3: Failed
+Test 4: Passed
+
+Test minimumAmplitude
+8
+6053
+7164
+9824
+9949
+9244
+0
+
