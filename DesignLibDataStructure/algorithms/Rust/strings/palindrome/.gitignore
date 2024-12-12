@@ -1,2 +1,0 @@
-# remove the path 'target' (for cargo builds) from git
-target/
